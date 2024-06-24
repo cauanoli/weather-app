@@ -16,10 +16,8 @@ export async function getLocationWeatherData(locationName, processed = true) {
 
     if (processed) {
       const processedData = processWeatherData(data);
-      console.log(processedData);
       return processedData;
     }
-    console.log(data);
 
     return data;
   } catch (error) {
