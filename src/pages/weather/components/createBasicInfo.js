@@ -23,7 +23,6 @@ export function createBasicInfo(data) {
 
   const temperature = document.createElement("div");
   temperature.classList = "weather__basic-info__temperature__temperature";
-  console.log(data, State.getScale(), data[State.getScale()]);
   temperature.innerText = data[State.getScale()].temperature;
 
   temperatureContainer.appendChild(weatherIcon);

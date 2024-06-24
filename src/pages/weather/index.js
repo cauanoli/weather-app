@@ -1,7 +1,8 @@
-import { isSameDay, isSameHour } from "date-fns";
+import { isSameDay, isSameHour, format } from "date-fns";
 
 import { renderWeatherData } from "./components/renderWeatherData";
 import { renderHours } from "./components/renderHours";
+import { renderForecastDays } from "./components/renderForecastDays";
 
 export function renderWeatherPage(data) {
   const container = document.querySelector("#container");
@@ -10,18 +11,14 @@ export function renderWeatherPage(data) {
   });
 
   const currentHour = currentDay.hour.find((hour) =>
-    isSameHour(hour.time, new Date())
+    isSameHour(hour.time, data.current.time)
   );
 
   const weather = renderWeatherData(currentHour);
   const hours = renderHours(currentDay);
-  const days = renderForecastDays(data.days);
+  const days = renderForecastDays({ days: data.days, current: currentDay });
 
   container.appendChild(weather);
   container.appendChild(hours);
   container.appendChild(days);
-}
-
-function renderForecastDays(days) {
-  return document.createElement("div");
 }

@@ -26,6 +26,7 @@ export async function getLocationWeatherData(locationName, processed = true) {
 }
 
 function processWeatherData(data) {
+  console.log(data);
   const weatherData = {
     name: data.location.name,
     country: data.location.country,
