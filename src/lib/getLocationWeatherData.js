@@ -49,7 +49,7 @@ function processWeatherData(data) {
     days: [
       ...data.forecast.forecastday.map((day) => {
         return {
-          date: day.date,
+          time: day.date,
           hour: [
             ...day.hour.map((hour) => {
               return {

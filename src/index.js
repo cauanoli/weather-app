@@ -13,5 +13,6 @@ searchForm.addEventListener("submit", (event) => {
 
   locationData.then((data) => {
     renderWeatherPage(data);
+    search.value = `${data.name}, ${data.country}`;
   });
 });
