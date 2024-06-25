@@ -1,3 +1,4 @@
+import "./styles.css";
 import { getLocationWeatherData } from "./lib/getLocationWeatherData";
 import { renderWeatherPage } from "./pages/weather";
 
