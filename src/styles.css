@@ -51,6 +51,11 @@ body {
   padding: 1rem;
 }
 
+body:has(#container:empty) .header {
+  max-width: 80ch;
+  min-height: 100vh;
+}
+
 .search-location {
   display: flex;
   align-items: center;
