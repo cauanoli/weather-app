@@ -150,6 +150,7 @@ body {
   grid-template-rows: repeat(auto-fit, minmax(148px, 10vh));
   justify-content: center;
   gap: 1rem;
+  padding: 2rem;
 }
 
 .hours-cards__card {
@@ -170,6 +171,33 @@ body {
 }
 
 .hours-cards__card.active {
+  background-color: var(--highlight);
+  font-weight: 700;
+}
+
+.days {
+  padding: 4rem;
+}
+
+.days__days {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.days__day-button {
+  padding: 1rem 3rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+
+.days__day-button:hover {
+  background-color: var(--background-hover);
+  cursor: pointer;
+}
+
+.days__day-button.active {
   background-color: var(--highlight);
   font-weight: 700;
 }

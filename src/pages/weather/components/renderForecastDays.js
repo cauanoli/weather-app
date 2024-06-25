@@ -8,6 +8,9 @@ export function renderForecastDays({ days, current, active }) {
   title.innerText = "Week climate";
   title.classList = "days__title";
 
+  const dayButtons = document.createElement("div");
+  dayButtons.classList = "days__days";
+
   container.appendChild(title);
 
   days.forEach((day) => {
@@ -16,8 +19,10 @@ export function renderForecastDays({ days, current, active }) {
       currentTime: current.time,
       active,
     });
-    container.appendChild(dayButton);
+    dayButtons.appendChild(dayButton);
   });
+
+  container.appendChild(dayButtons);
 
   return container;
 }
