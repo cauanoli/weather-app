@@ -5,7 +5,7 @@ import { renderHours } from "./components/renderHours";
 import { renderForecastDays } from "./components/renderForecastDays";
 import { clearContainer } from "../../lib/clearContainer";
 import { emitter } from "../../lib/emitter";
-import { CHANGE_DAY, CHANGE_HOUR } from "../../lib/contants";
+import { CHANGE_DAY, CHANGE_HOUR, CHANGE_SCALE } from "../../lib/contants";
 
 export function renderWeatherPage(data) {
   const container = document.querySelector("#container");
@@ -42,6 +42,10 @@ export function renderWeatherPage(data) {
   emitter.on(CHANGE_DAY, (day) => {
     activeDay = day;
     activeHour = activeDay.hour[0];
+    render();
+  });
+
+  emitter.on(CHANGE_SCALE, () => {
     render();
   });
 

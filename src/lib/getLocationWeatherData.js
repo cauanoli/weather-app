@@ -43,7 +43,7 @@ function processWeatherData(data) {
       },
       fahrenheit: {
         temperature: data.current.temp_f,
-        wind: data.current.wind_mpm,
+        wind: data.current.wind_mph,
         feelsLike: data.current.feelslike_f,
       },
     },
@@ -53,6 +53,7 @@ function processWeatherData(data) {
           time: day.date,
           hour: [
             ...day.hour.map((hour) => {
+              console.log(hour);
               return {
                 time: hour.time,
                 condition: hour.condition.text,
@@ -60,15 +61,15 @@ function processWeatherData(data) {
                 windDegree: hour.wind_degree,
                 humidity: hour.humidity,
                 rainChance: hour.chance_of_rain,
-                fahrenheit: {
-                  temperature: hour.temp_f,
-                  feelsLike: hour.feelslike_f,
-                  wind: hour.wind_mpm,
-                },
                 celsius: {
                   temperature: hour.temp_c,
                   feelsLike: hour.feelslike_c,
                   wind: hour.wind_kph,
+                },
+                fahrenheit: {
+                  temperature: hour.temp_f,
+                  feelsLike: hour.feelslike_f,
+                  wind: hour.wind_mph,
                 },
               };
             }),

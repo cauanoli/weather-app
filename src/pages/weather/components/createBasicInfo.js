@@ -2,6 +2,10 @@ import { isSameDay, format } from "date-fns";
 import { State } from "../../../lib/State";
 
 export function createBasicInfo(data) {
+  const scale = State.getScale();
+  const windScale = State.getWindScale();
+  const symbol = State.getScaleSymbol();
+
   const basicInfo = document.createElement("div");
   basicInfo.classList = "weather__basic-info";
 
@@ -23,7 +27,7 @@ export function createBasicInfo(data) {
 
   const temperature = document.createElement("div");
   temperature.classList = "weather__basic-info__temperature__temperature";
-  temperature.innerText = data[State.getScale()].temperature;
+  temperature.innerText = `${data[scale].temperature}${symbol}`;
 
   temperatureContainer.appendChild(weatherIcon);
   temperatureContainer.appendChild(temperature);

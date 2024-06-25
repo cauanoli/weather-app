@@ -3,8 +3,11 @@ import { emitter } from "../../../lib/emitter";
 import { State } from "../../../lib/State";
 
 export function createHourCard({ hour, activeHour }) {
+  const scale = State.getScale();
+  const symbol = State.getScaleSymbol();
+
   const { time, icon } = hour;
-  const { temperature } = hour[State.getScale()];
+  const { temperature } = hour[scale];
 
   const container = document.createElement("button");
   container.classList = `hours-cards__card card ${
@@ -21,7 +24,7 @@ export function createHourCard({ hour, activeHour }) {
 
   const temperatureElement = document.createElement("div");
   temperatureElement.classList = "hours-cards__card__temperature";
-  temperatureElement.innerText = temperature;
+  temperatureElement.innerText = `${temperature}${symbol}`;
 
   container.appendChild(timeElement);
   container.appendChild(iconElement);

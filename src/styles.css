@@ -49,11 +49,16 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  gap: 1rem;
 }
 
 body:has(#container:empty) .header {
   max-width: 80ch;
   min-height: 100vh;
+}
+
+body:has(#container:empty) .change-scale-button {
+  display: none;
 }
 
 .search-location {
@@ -190,7 +195,8 @@ body:has(#container:empty) .header {
   gap: 1rem;
 }
 
-.days__day-button {
+.days__day-button,
+.change-scale-button {
   padding: 1rem 3rem;
   background-color: transparent;
   border: none;
@@ -205,4 +211,16 @@ body:has(#container:empty) .header {
 .days__day-button.active {
   background-color: var(--highlight);
   font-weight: 700;
+}
+
+.change-scale-button {
+  text-transform: uppercase;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  min-width: 200px;
+}
+
+.change-scale-button:hover {
+  background-color: var(--background-hover);
+  cursor: pointer;
 }

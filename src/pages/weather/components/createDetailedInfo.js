@@ -1,3 +1,4 @@
+import { CELSIUS_SCALE } from "../../../lib/contants";
 import { State } from "../../../lib/State";
 import { createInfo } from "./createInfo";
 
@@ -5,9 +6,13 @@ export function createDetailedInfo(data) {
   const detailedInfo = document.createElement("div");
   detailedInfo.classList = "weather__detailed-info";
 
+  const scale = State.getScale();
+  const windScale = State.getWindScale();
+  const symbol = State.getScaleSymbol();
+
   const feelsLike = createInfo({
     name: "feels like",
-    data: data[State.getScale()].wind,
+    data: `${data[scale].feelsLike}${symbol}`,
   });
 
   const humidity = createInfo({
@@ -17,7 +22,7 @@ export function createDetailedInfo(data) {
 
   const wind = createInfo({
     name: "wind",
-    data: data[State.getScale()].wind,
+    data: `${data[scale].wind} ${windScale}`,
   });
 
   const windDegree = createInfo({
