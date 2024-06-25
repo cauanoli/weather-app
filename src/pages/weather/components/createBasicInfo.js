@@ -19,7 +19,7 @@ export function createBasicInfo(data) {
 
   const weatherIcon = new Image();
   weatherIcon.classList = "weather__basic-info__temperature__icon";
-  weatherIcon.src = data.icon;
+  weatherIcon.src = data.icon.replace("64x64", "128x128");
 
   const temperature = document.createElement("div");
   temperature.classList = "weather__basic-info__temperature__temperature";
