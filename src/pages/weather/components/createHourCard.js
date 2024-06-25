@@ -1,11 +1,15 @@
+import { CHANGE_HOUR } from "../../../lib/contants";
+import { emitter } from "../../../lib/emitter";
 import { State } from "../../../lib/State";
 
-export function createHourCard(hour) {
+export function createHourCard({ hour, activeHour }) {
   const { time, icon } = hour;
   const { temperature } = hour[State.getScale()];
 
   const container = document.createElement("button");
-  container.classList = "hours-cards__card card";
+  container.classList = `hours-cards__card card ${
+    hour.time === activeHour.time ? "active" : ""
+  }`;
 
   const timeElement = document.createElement("div");
   timeElement.classList = "hours-cards__card__time";
@@ -22,6 +26,10 @@ export function createHourCard(hour) {
   container.appendChild(timeElement);
   container.appendChild(iconElement);
   container.appendChild(temperatureElement);
+
+  container.addEventListener("click", () => {
+    emitter.emit(CHANGE_HOUR, hour);
+  });
 
   return container;
 }
